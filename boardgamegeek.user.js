@@ -7,7 +7,6 @@
 // @match        https://www.boardgamegeek.com/boardgame/*
 // @match        https://boardgamegeek.com/boardgame/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js
-// @grant        none
 // ==/UserScript==
 
 // Since BGG uses HTTPS, external favicon loaded in HTTP will cause security warnings. Therefore they are encoded in
@@ -48,24 +47,34 @@ var EXTERNAL_SEARCH_LINKS = [
     href: 'http://www.vindjeu.eu/?s={}',
     icon: 'data:image/png;base64,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',
     enabled:true
+  },
+  {
+    desc: 'Jeux à Deux',
+    href: 'http://www.jeuxadeux.com/index.php/Recherche?q={}',
+    icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAACXBIWXMAAAsTAAALEwEAmpwYAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAAyVBMVEUAAAAAAAADAwMiIiIwMDBKSkpaWlpcXFxgYGBjY2NkZGRnZ2d/f3+BgYGDg4MAAAAAAAABAQEEBAQFBQUJCQkNDQ0ODg4UFBQYGBggICAhISEnJycsLCwuLi40NDQ3NzdHR0dMTExNTU1QUFBYWFhaWlpbW1tcXFxfX19lZWVwcHB7e3t9fX1+fn6IiIiJiYmZmZmoqKjGxsbJycnOzs7R0dHV1dXa2trc3Nzo6Ojr6+vw8PDx8fHy8vL19fX8/Pz9/f3+/v7////ot5IlAAAAEHRSTlPh8PDw8PDw8PDw8PDw8PD0/i3yeQAAAJFJREFUGNNVz0UCwkAUBNE/yCAB0gR3d3dC0L7/oVhAYFLLtyuRiJWMaa211rGEFRaxG7Mtvx2WVVsU4Aw8knxM84ASBQArktwAP2g/SY4MKHskOwYUTqRbMgDNo9uFCcXjpRKAPjkPwJrcOSbsyXPuD7XehbyO6z5Mbp+V+wJQYqP18uc4zNoiKppJfUvHQ/IG20ocHyxGhIwAAAAASUVORK5CYII=',
+    enabled:true
   }
 ];
 
 // Add links on board game page, next to the title, to search the game on external sites
-decorateBoardgameSearchLinks();
+$(document).ready(function() {
+  addExternalSearchLinksForBoardgame();
+});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Implementation
   
-function decorateBoardgameSearchLinks() {
+function addExternalSearchLinksForBoardgame() {
   var titleEl = $('h1.geekitem_title');
+  var titleText = titleEl.find('a').text();
+
   for (i=0; i<EXTERNAL_SEARCH_LINKS.length; i++) {
     var linkDef = EXTERNAL_SEARCH_LINKS[i];
     if (!linkDef.enabled)
       continue;
 
     titleEl.append($("<a />", {
-      href: linkDef.href.replace('{}', encodeURIComponent(titleEl.find('a').text())),
+      href: linkDef.href.replace('{}', encodeURIComponent(titleText)),
       target: '_blank',
       title: linkDef.desc,
       style: 'background: url({}) 0 8px no-repeat; background-size: 16px; padding:0 10px;'.replace('{}', linkDef.icon)
