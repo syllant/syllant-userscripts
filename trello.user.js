@@ -10,11 +10,14 @@
 // ==/UserScript==
 
 // Hide "add" column which is only useful when initializing boards!
-hideAddColumn();
+$( document ).ready(function() {
+  hideAddColumn();
+});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Implementation
   
 function hideAddColumn() {
-  $('.list.mod-add.is-idle').hide();
+    // Column is update dynamically when page is loaded, need to wait before hiding it
+    setTimeout(function() { $('.list.mod-add.is-idle').hide(); }, 500);
 }
