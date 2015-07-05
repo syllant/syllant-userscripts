@@ -5,6 +5,7 @@
 // @description  Decorate BoardGameGeek.com
 // @author       Sylvain Francois
 // @match        https://www.boardgamegeek.com/boardgame/*
+// @match        https://www.boardgamegeek.com/boardgameexpansion/*
 // @match        https://boardgamegeek.com/boardgame/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js
 // ==/UserScript==
