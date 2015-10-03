@@ -4,9 +4,10 @@
 // @version      1.0
 // @description  Decorate BoardGameGeek.com
 // @author       Sylvain Francois
-// @match        https://www.boardgamegeek.com/boardgame/*
-// @match        https://www.boardgamegeek.com/boardgameexpansion/*
-// @match        https://boardgamegeek.com/boardgame/*
+// @match        http*://boardgamegeek.com/boardgame/*
+// @match        http*://www.boardgamegeek.com/boardgame/*
+// @match        http*://www.boardgamegeek.com/boardgameexpansion/*
+// @match        http*://boardgamegeek.com/boardgameexpansion/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js
 // ==/UserScript==
 
