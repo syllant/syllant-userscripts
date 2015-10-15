@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         syllant/BGG decorator
 // @homepageURL  https://github.com/syllant/syllant-userscripts
-// @version      1.0
+// @version      1.0.1
 // @description  Decorate BoardGameGeek.com
 // @author       Sylvain Francois
 // @match        http*://boardgamegeek.com/boardgame/*
@@ -16,7 +16,7 @@
 var EXTERNAL_SEARCH_LINKS = [
   {
     desc: 'Tric Trac',
-    href: 'http://www.trictrac.net/recherche?entities=boardgame&query={}',
+    href: 'http://www.trictrac.net/recherche?type=boardgames&search={}',
     icon: 'data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////ALipqf+LhYX/e1JS/3tSUv+LhYX/uKmp/////wD///8A////AP///wD///8A////AP///wD///8A4dvb/14yMv+LOzb/o0xK/7hcWv+4XFr/o0xK/4s7Nv9eMjL/4dvb/////wD///8A////AP///wD///8AysXF/3IcD//FZ2T/v2Jf/7hcWv+jTEr/o0xK/7hcWv+/Yl//xWdk/3IcD//KxcX/////AP///wD///8A////AHotJf+jTEr/ahAH/0wAAP9cBgD/ei0l/3otJf9cBgD/TAAA/2oQB/+jTEr/ei0l/////wD///8A////ALipqf9yHA//TAAA/4s7Nv+/Yl//03Ju/9Nybv/Tcm7/03Ju/79iX/+LOzb/TAAA/3IcD/+4qan/////AP///wBkSUn/chwP/8VnZP/Tcm7/03Ju/5tIQ//Tcm7/03Ju/5tIQ//Tcm7/03Ju/8VnZP9yHA//ZElJ/////wD///8Ae1JS/79iX//Tcm7/03Ju/7hcWv9MAAD/zGxp/8xsaf9MAAD/uFxa/9Nybv/Tcm7/v2Jf/3tSUv////8A////AHNhYf+jTEr/03Ju/9Nybv/Tcm7/o0xK/9Nybv/Tcm7/o0xK/9Nybv/Tcm7/03Ju/6NMSv9zYWH/////AP///wDKxcX/chwP/9Nybv/Tcm7/03Ju/9Nybv/Tcm7/03Ju/9Nybv/Tcm7/03Ju/9Nybv9yHA//ysXF/////wD///8Ai4WF/14yMv9qEAf/zGxp/9Nybv/Tcm7/03Ju/9Nybv/Tcm7/03Ju/8xsaf9qEAf/XjIy/4uFhf////8A1NLS/y0eHv+LhYX/XjIy/1MFAP+jTEr/v2Jf/9Nybv/Tcm7/v2Jf/6NMSv9TBQD/XjIy/4uFhf8tHh7/1NLS/2RJSf+moaH/Qzc3/4+Jif9zYWH/f3h4/0wAAP9MAAD/TAAA/0wAAP9/eHj/c2Fh/4+Jif9DNzf/pqGh/2RJSf/U0tL/ysXF/0M3N/9/eHj/sq6u/////wD///8A397e/9/e3v////8A////ALKurv9/eHj/Qzc3/8rFxf/U0tL/////AH94eP+ZlJT/Qzc3/9TS0v////8A////AP///wD///8A////AP///wDU0tL/Qzc3/5mUlP9/eHj/////AP///wAtHh7/ysXF/y0eHv////8A////AP///wD///8A////AP///wD///8A////AC0eHv/KxcX/LR4e/////wD///8Asq6u/9/e3v9/eHj/////AP///wD///8A////AP///wD///8A////AP///wB/eHj/397e/7Kurv////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==',
     enabled:true
   },
