@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         syllant/TricTrac decorator
 // @homepageURL  https://github.com/syllant/userscripts
-// @version      1.0
-// @description  Decorate trictrac.net. Actually only points to BGG, where another script adds more links.
+// @version      1.0.1
+// @description  Decorate trictrac.net. Actually only points to BGG, where another script adds more links
 // @author       Sylvain Francois
 // @match        http://www.trictrac.net/jeu-de-societe/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js
@@ -27,7 +27,7 @@ $(document).ready(function() {
 // Implementation
   
 function addExternalSearchLinksForBoardgame() {
-  var titleEl = $('h2');
+  var titleEl = $('h1');
   var titleText = titleEl.find('span.fn').text();
 
   for (i=0; i<EXTERNAL_SEARCH_LINKS.length; i++) {
@@ -39,7 +39,7 @@ function addExternalSearchLinksForBoardgame() {
       href: linkDef.href.replace('{}', encodeURIComponent(titleText)),
       target: '_blank',
       title: linkDef.desc,
-      style: 'background: url({}) 0 8px no-repeat; background-size: 16px; padding:8px 8px;'.replace('{}', linkDef.icon)
+      style: 'background: url({}) 0 8px no-repeat; background-size:24px; padding-right:24px; margin-left:16px'.replace('{}', linkDef.icon)
    }));
   }
 }
