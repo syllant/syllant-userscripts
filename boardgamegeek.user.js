@@ -1,18 +1,15 @@
 // ==UserScript==
 // @name         syllant/BGG decorator
 // @homepageURL  https://github.com/syllant/syllant-userscripts
-// @version      1.0.2
+// @version      1.0.3
 // @description  Decorate BoardGameGeek.com
 // @author       Sylvain Francois
-// @match        http*://boardgamegeek.com/boardgame/*
-// @match        http*://www.boardgamegeek.com/boardgame/*
-// @match        http*://www.boardgamegeek.com/boardgameexpansion/*
-// @match        http*://boardgamegeek.com/boardgameexpansion/*
+// @include      /^http(s)?:\/\/(www\.)?boardgamegeek\.com\/boardgame(expansion)?\/.*/
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js
 // ==/UserScript==
 
-// Since BGG uses HTTPS, external favicon loaded in HTTP will cause security warnings. Therefore they are encoded in
-// base64, e.g. using http://www.askapache.com/online-tools/base64-image-converter/
+// Since BGG uses HTTPS, external favicon loaded in HTTP will cause security warnings. Also, external links are not always stable. 
+// This is why icons are encoded in base64, e.g. using http://www.askapache.com/online-tools/base64-image-converter/
 var EXTERNAL_SEARCH_LINKS = [
   {
     desc: 'Tric Trac',
