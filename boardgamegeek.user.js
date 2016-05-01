@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         syllant/BGG decorator
 // @homepageURL  https://github.com/syllant/syllant-userscripts
-// @version      1.3
+// @version      1.4
 // @description  Decorate BoardGameGeek.com: custom links to show game on other sites, lightbox gallery for images
 // @author       Sylvain Francois
 // @include      /^http(s)?:\/\/(www\.)?boardgamegeek\.com\/boardgame(expansion)?\/.*/
@@ -87,6 +87,7 @@ $(document).ready(function ()
     else
     {
         addExternalSearchLinksForBoardgame();
+        setTimeout(addLightboxGallery, 1000);
     }
 });
 
@@ -140,6 +141,45 @@ function addExternalSearchLinksForBoardgameLegacy()
       title: linkDef.desc,
       style: 'background: url({}) 0 8px no-repeat; background-size: 16px; padding:0 10px;'.replace('{}', linkDef.icon)
     }));
+  }
+}
+
+// Add a gallery to browse images
+function addLightboxGallery()
+{
+  GM_addStyle(GM_getResourceText("magnific_popup"));
+  GM_addStyle("div.mfp-title a { text-decoration: underline; color: white; font-size: smaller; }");
+
+  // Build gallery
+  var images = $('a.game-media img');
+  var items = [];
+  images.each(function ()
+  {
+      console.log($(this).attr('src'), $(this).attr('src').replace('/fit-in/75x75/', '/images'));
+    items.push(
+      {
+        src: $(this).attr('src').replace(/\/\/([^\/]*)\/.*\/(.*).jpg/g, '//$1/images/$2.jpg'),
+        title: '<a href="' + $(this).parent().attr('href') + '">Go to image page</a>'
+      });
+  });
+
+  // Link Gallery to images
+  images.each(function (index)
+  {
+    var parentLink = $(this).parent();
+    linkGallery(parentLink, index);
+  });
+
+  function linkGallery(e, openIndex)
+  {
+    e.magnificPopup({
+      items: items,
+      index: openIndex,
+      gallery: {
+        enabled: true
+      },
+      type: 'image'
+    });
   }
 }
 
