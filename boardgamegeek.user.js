@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         syllant/BGG decorator
 // @homepageURL  https://github.com/syllant/syllant-userscripts
-// @version      1.4
+// @version      1.4.1
 // @description  Decorate BoardGameGeek.com: custom links to show game on other sites, lightbox gallery for images
 // @author       Sylvain Francois
 // @include      /^http(s)?:\/\/(www\.)?boardgamegeek\.com\/boardgame(expansion)?\/.*/
@@ -79,16 +79,16 @@ var EXTERNAL_SEARCH_LINKS = [
 
 $(document).ready(function ()
 {
-    if ($('body[ng-app="GeekApp"]') == null)
-    {
-        addExternalSearchLinksForBoardgameLegacy();
-        addLightboxGalleryLegacy();
-    }
-    else
-    {
-        addExternalSearchLinksForBoardgame();
-        setTimeout(addLightboxGallery, 1000);
-    }
+  if ($('body[ng-app="GeekApp"]') == null)
+  {
+    addExternalSearchLinksForBoardgameLegacy();
+    addLightboxGalleryLegacy();
+  }
+  else
+  {
+    addExternalSearchLinksForBoardgame();
+    setTimeout(addLightboxGallery, 1000);
+  }
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,11 +98,11 @@ $(document).ready(function ()
 function addExternalSearchLinksForBoardgame()
 {
   var targetEl = $('<span />', {
-      style: 'background: #eaeef2; padding: 2px; vertical-align: middle;'
+    style: 'background: #eaeef2; padding: 2px; vertical-align: middle;'
   });
   $('div.toolbar-actions').append(targetEl);
 
-  var titleText = $('a[ui-sref="geekitem.overview"]').text().trim();
+  var titleText = $('.game-header-title-info a[ui-sref="geekitem.overview"]').text().trim();
 
   for (i = 0; i < EXTERNAL_SEARCH_LINKS.length; i++)
   {
@@ -116,7 +116,8 @@ function addExternalSearchLinksForBoardgame()
       href: linkDef.href.replace('%s', encodeURIComponent(titleText)),
       target: '_blank',
       title: linkDef.desc,
-      style: 'background: url({}) 0 0 no-repeat; background-size: 16px; padding:0 10px; margin: 0 2px'.replace('{}', linkDef.icon)
+      style: 'background: url({}) 0 0 no-repeat; background-size: 16px; padding:0 10px; margin: 0 2px'.replace('{}',
+        linkDef.icon)
     }));
   }
 }
@@ -155,7 +156,7 @@ function addLightboxGallery()
   var items = [];
   images.each(function ()
   {
-      console.log($(this).attr('src'), $(this).attr('src').replace('/fit-in/75x75/', '/images'));
+    console.log($(this).attr('src'), $(this).attr('src').replace('/fit-in/75x75/', '/images'));
     items.push(
       {
         src: $(this).attr('src').replace(/\/\/([^\/]*)\/.*\/(.*).jpg/g, '//$1/images/$2.jpg'),
