@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         syllant/BGG decorator
 // @homepageURL  https://github.com/syllant/syllant-userscripts
-// @version      1.4.2
+// @version      1.4.3
 // @description  Decorate BoardGameGeek.com: custom links to show game on other sites, lightbox gallery for images
 // @author       Sylvain Francois
 // @include      /^http(s)?:\/\/(www\.)?boardgamegeek\.com\/boardgame(expansion)?\/.*/
@@ -29,7 +29,7 @@ var EXTERNAL_SEARCH_LINKS = [
   },
   {
     desc: 'Cardhaus games',
-    href: 'http://www.cardhaus.com/products/search?query=%s',
+    href: 'https://www.cardhaus.com/search.php?search_query=%s&section=product',
     icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAACKFBMVEX////+/v764z3/5Tbj4cf83zD78r767zX/5zPn5NH/3CfZu1JWRDf//ez/3EGykyzO0MbwsjLLlyuUdm+MgiKYlWH84Cz88C/jyCr8/PrrwCuWdT+zmW344rTiwKqbgSHQyc+bnIRwZiz/yjb+1T2ZZQm6gwK4iQq/mxr/1p3/+//XvqH/0USGfWX/+KjDu3B6eFd3YhjLigOYcgekelf/3q5nQAD52aj3263/7OtDIjW8nCWBZEn5+fiHWAqBcg793a7/69j97t7/7tfz6W/87d//9uO4q5pnPiFmWEVdTfj8/fmRlj3/6+7+79//7tp5al76/t1YPApRNgCkiyT/5DCtkjCTlYHf57/16jjl4/mThf1JNNrBo5j848T+8N3/9uT59Nj/+urZmhySZw75xDnXszr4/+zInh/s9MxRQbR9UQCLaR/5yY762bCEjVjg9ff7////59GXlXSykTl/Yh2QciOtiQaPZRL/4StmVP+VeR3AkSz7z4i0pZnG6v/f8/3h7/ssNh/P0fLo3vexhxubcxXOnCG6jxScehhhS/bV1vOAaoeu2uW/5/y34/ba8f/Z8fzD6f7b8v////fx8/pcWivMlQ44MSJFMAi3hgOXeiNhTO/Fu/+55fu97v/C5vzH6f1qY4uQf/xnTP+Xl+p5bHKbmpeNXwHDvaXFwpheTfzA7PV1mKfi9//d8vza9v/W3ceDb/9HO6pPQZX6/8j2+s7d59j3l++1AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAASAAAAEgARslrPgAAAGFJREFUGNOtjr0RQFAQBr81JzHjL5RSgTY0rAAN6EALRCLzBDd4xDa63fmCkxz0PRI4wh0IKcB+BUIGAKtkkhRqd+ShgSfQETPLitgnyfLIR0kMvLHqt7CVLK0H/6OE3hcnWiANYHtrJbkAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTMtMDQtMzBUMjM6MDc6MDArMDA6MDBHixfzAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEzLTA0LTMwVDIzOjA3OjAwKzAwOjAwNtavTwAAAABJRU5ErkJggg==',
     enabled: true
   },
