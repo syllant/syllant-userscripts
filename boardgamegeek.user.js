@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         syllant/BGG decorator
 // @homepageURL  https://github.com/syllant/syllant-userscripts
-// @version      1.4.1
+// @version      1.4.2
 // @description  Decorate BoardGameGeek.com: custom links to show game on other sites, lightbox gallery for images
 // @author       Sylvain Francois
 // @include      /^http(s)?:\/\/(www\.)?boardgamegeek\.com\/boardgame(expansion)?\/.*/
@@ -87,7 +87,7 @@ $(document).ready(function ()
   else
   {
     addExternalSearchLinksForBoardgame();
-    setTimeout(addLightboxGallery, 1000);
+//    setTimeout(addLightboxGallery, 1000);
   }
 });
 
@@ -97,8 +97,9 @@ $(document).ready(function ()
 // Add links on board game page, next to the title, to search the game on external sites
 function addExternalSearchLinksForBoardgame()
 {
-  var targetEl = $('<span />', {
-    style: 'background: #eaeef2; padding: 2px; vertical-align: middle;'
+  var targetEl = $('<div />', {
+    'class': 'toolbar-action',
+    style: 'background: #eaeef2; padding: 3px; border-radius: 2px;'
   });
   $('div.toolbar-actions').append(targetEl);
 
@@ -116,7 +117,7 @@ function addExternalSearchLinksForBoardgame()
       href: linkDef.href.replace('%s', encodeURIComponent(titleText)),
       target: '_blank',
       title: linkDef.desc,
-      style: 'background: url({}) 0 0 no-repeat; background-size: 16px; padding:0 10px; margin: 0 2px'.replace('{}',
+      style: 'background: url({}) 4px 4px no-repeat; background-size: 20px; padding:6px 16px; margin: 0 2px;'.replace('{}',
         linkDef.icon)
     }));
   }
@@ -156,10 +157,11 @@ function addLightboxGallery()
   var items = [];
   images.each(function ()
   {
-    console.log($(this).attr('src'), $(this).attr('src').replace('/fit-in/75x75/', '/images'));
+    console.info($(this).attr('src'), $(this).attr('src').replace(/\/\/([^\/]*)\/.*\/(.*).jpg/g, '//$1/images/$2.jpg'));
     items.push(
       {
-        src: $(this).attr('src').replace(/\/\/([^\/]*)\/.*\/(.*).jpg/g, '//$1/images/$2.jpg'),
+//        src: $(this).attr('src').replace(/\/\/([^\/]*)\/.*\/(.*).jpg/g, '//$1/images/$2.jpg'),
+        src: $(this).attr('src'),
         title: '<a href="' + $(this).parent().attr('href') + '">Go to image page</a>'
       });
   });
